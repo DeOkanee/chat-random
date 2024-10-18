@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Random</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="setupForm" class="setup-form">
+            <h2>Selamat Datang <br> di Chat Random</h2>
+            <input type="text" id="nameInput" placeholder="Masukkan nama Anda" required>
+            <div class="character-selection">
+                <div class="character-option" onclick="selectCharacter('1')">
+                    <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Felix" alt="Karakter 1">
+                    <p>Woman</p>
+                </div>
+                <div class="character-option" onclick="selectCharacter('2')">
+                    <img src="https://api.dicebear.com/6.x/adventurer/svg?seed=Aneka" alt="Karakter 2">
+                    <p>Man</p>
+                </div>
+            </div>
+            <button onclick="startChat()">Mulai Chat</button>
+        </div>
+
+        <div id="chatContainer" class="chat-container" style="display: none;">
+            <div class="chat-header">
+                <h2>Room Chat Random</h2>
+            </div>
+            <div id="chatMessages" class="chat-messages"></div>
+        
+            <div class="chat-input-wrapper">
+                <div id="replyMessage" class="reply-message" style="display: none;">
+                    <span id="replyText"></span>
+                    <button id="cancelReply" onclick="cancelReply()">❌</button>
+                </div>
+            
+                <div id="fileNameDisplay" style="display: none; margin-bottom: 5px;"></div>
+            
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Ketik pesan..." autocomplete="off">
+                    <input type="file" id="fileInput" style="display: none;">
+                    <button id="attachButton" onclick="document.getElementById('fileInput').click()">📁</button>
+                    <button id="sendButton">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
